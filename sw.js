@@ -1,4 +1,4 @@
-const CACHE_NAME = "paperplane-shell-v3";
+const CACHE_NAME = "paperplane-shell-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -54,15 +54,17 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    caches.match(request).then((cachedResponse) => {
-      if (cachedResponse) return cachedResponse;
-      return fetch(request).then((response) => {
+    fetch(request)
+      .then((response) => {
         if (response.ok) {
           const responseCopy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, responseCopy));
         }
         return response;
-      });
-    })
+      })
+      .catch(async () => {
+        const cachedResponse = await caches.match(request);
+        return cachedResponse || Response.error();
+      })
   );
 });
