@@ -158,10 +158,10 @@
                 <option value="fit">Fit to image</option>
               </select>
 
-              <label class="field-label" for="pdf-orientation">Orientation</label>
-              <div class="segmented-control" id="pdf-orientation">
-                <button class="segment active" type="button" data-orientation="portrait">Portrait</button>
-                <button class="segment" type="button" data-orientation="landscape">Landscape</button>
+              <span class="field-label" id="pdf-orientation-label">Orientation</span>
+              <div class="segmented-control" role="group" aria-labelledby="pdf-orientation-label" id="pdf-orientation">
+                <button class="segment active" type="button" data-orientation="portrait" aria-pressed="true">Portrait</button>
+                <button class="segment" type="button" data-orientation="landscape" aria-pressed="false">Landscape</button>
               </div>
 
               <label class="field-label" for="pdf-margin">Page margin</label>
@@ -228,6 +228,7 @@
             </section>
             <section class="card text-result-card">
               <div class="section-title-row"><div><h2>Recognized text</h2><p>Review and edit your extracted text.</p></div><button id="copy-text" class="button button-quiet" type="button" disabled>Copy text</button></div>
+              <label class="visually-hidden" for="scan-result">Recognized text (editable)</label>
               <textarea id="scan-result" class="text-result" placeholder="Your scanned text will appear here…" spellcheck="false"></textarea>
               <div class="result-footer"><span>✦ Text is editable</span><button id="download-text" class="text-button" type="button" disabled>Download .txt <span>↓</span></button></div>
             </section>

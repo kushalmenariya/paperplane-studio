@@ -69,6 +69,8 @@ h1 span { color: var(--purple); }
 .step-badge { align-items: center; background: #f4f2fb; border-radius: 6px; color: #927dde; display: flex; font: 700 10px "Manrope", sans-serif; height: 25px; justify-content: center; width: 27px; }
 .dropzone { align-items: center; background: #fcfcfe; border: 1px dashed #d6d1ed; border-radius: 9px; cursor: pointer; display: flex; flex-direction: column; justify-content: center; min-height: 167px; padding: 17px; text-align: center; transition: background .15s, border-color .15s; }
 .dropzone:hover, .dropzone.drag-over, .editor-empty.drag-over { background: #f8f6ff; border-color: var(--purple); }
+.dropzone:focus-visible, .editor-empty:focus-visible, .file-picker:focus-visible { outline: 3px solid #b7a9ed; outline-offset: 3px; }
+.visually-hidden { clip: rect(0, 0, 0, 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
 .upload-icon { align-items: center; background: #f0edfc; border-radius: 11px; color: var(--purple); display: flex; height: 43px; justify-content: center; margin-bottom: 12px; width: 43px; }
 .upload-icon svg { fill: none; height: 22px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; width: 22px; }
 .dropzone strong, .editor-empty strong { color: #394554; font-size: 12px; font-weight: 600; }
@@ -160,6 +162,7 @@ input[type="range"] { accent-color: var(--purple); height: 4px; width: 100%; }
 .page-control { background: transparent; border: 0; border-radius: 4px; color: #788493; font-size: 13px; height: 25px; width: 25px; }
 .page-control:hover { background: #f0edfc; color: var(--purple); }
 .page-control.delete:hover { background: #fff0ef; color: #d86667; }
+.page-control:disabled { color: #c4c9cf; cursor: not-allowed; }
 .main-footer { border-top: 1px solid #e9ebed; color: #a2aab3; display: flex; font-size: 10px; justify-content: space-between; margin: 25px auto 0; max-width: 1170px; padding: 18px 0 22px; }
 .toast { background: #263345; border-radius: 8px; bottom: 22px; box-shadow: 0 7px 25px #202b3830; color: white; font-size: 12px; left: 50%; max-width: calc(100vw - 32px); opacity: 0; padding: 12px 18px; pointer-events: none; position: fixed; transform: translate(-50%, 10px); transition: opacity .2s, transform .2s; z-index: 10; }
 .toast.visible { opacity: 1; transform: translate(-50%, 0); }

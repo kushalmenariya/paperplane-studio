@@ -76,12 +76,30 @@
   $$(".nav-item").forEach((item) => item.addEventListener("click", () => setActiveTool(item.dataset.tool)));
   $$(".segment").forEach((item) => item.addEventListener("click", () => {
     $$(".segment").forEach((segment) => segment.classList.remove("active"));
+    $$(".segment").forEach((segment) => segment.setAttribute("aria-pressed", "false"));
     item.classList.add("active");
+    item.setAttribute("aria-pressed", "true");
   }));
 
   function bindDropzone(dropzone, input, handler) {
     const zone = $(dropzone);
     const fileInput = $(input);
+    zone.tabIndex = 0;
+    zone.setAttribute("role", "button");
+    if (zone.id === "editor-dropzone") {
+      zone.setAttribute("aria-label", "Choose a PDF file or drop it here");
+    }
+    zone.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        fileInput.click();
+      }
+    });
+    if (zone.tagName !== "LABEL") {
+      zone.addEventListener("click", (event) => {
+        if (!event.target.closest("label")) fileInput.click();
+      });
+    }
     ["dragenter", "dragover"].forEach((eventName) => zone.addEventListener(eventName, (event) => {
       event.preventDefault();
       zone.classList.add("drag-over");
@@ -474,6 +492,29 @@
       const number = document.createElement("span");
       number.className = "page-number";
       number.textContent = `Page ${index + 1}`;
+      const movePage = (direction) => {
+        const destination = index + direction;
+        if (destination < 0 || destination >= pdfPages.length) return;
+        const [moved] = pdfPages.splice(index, 1);
+        pdfPages.splice(destination, 0, moved);
+        renderPdfPages();
+      };
+      const moveEarlier = document.createElement("button");
+      moveEarlier.className = "page-control";
+      moveEarlier.type = "button";
+      moveEarlier.title = "Move page earlier";
+      moveEarlier.setAttribute("aria-label", `Move page ${index + 1} earlier`);
+      moveEarlier.disabled = index === 0;
+      moveEarlier.textContent = "↑";
+      moveEarlier.addEventListener("click", () => movePage(-1));
+      const moveLater = document.createElement("button");
+      moveLater.className = "page-control";
+      moveLater.type = "button";
+      moveLater.title = "Move page later";
+      moveLater.setAttribute("aria-label", `Move page ${index + 1} later`);
+      moveLater.disabled = index === pdfPages.length - 1;
+      moveLater.textContent = "↓";
+      moveLater.addEventListener("click", () => movePage(1));
       const rotate = document.createElement("button");
       rotate.className = "page-control";
       rotate.type = "button";
@@ -494,7 +535,7 @@
         pdfPages.splice(index, 1);
         renderPdfPages();
       });
-      controls.append(number, rotate, remove);
+      controls.append(number, moveEarlier, moveLater, rotate, remove);
       card.append(canvasWrap, controls);
       card.addEventListener("dragstart", (event) => {
         card.classList.add("dragging");
