@@ -25,6 +25,10 @@ On a supported Chrome desktop version, use the **Install app** button when it ap
 
 The service worker caches the app shell; it does not cache the external PDF/OCR libraries or OCR language data, so those tools still need internet access.
 
+## Search engines
+
+The site includes a canonical URL, a sitemap, a `robots.txt`, and WebApplication structured data. After deployment, add the site as a URL-prefix property in [Google Search Console](https://search.google.com/search-console/), complete Google's ownership verification, and submit `https://kushalmenariya.github.io/paperplane-studio/sitemap.xml`. Request indexing for the homepage from URL Inspection. Google decides whether and when to index or show the site; these steps do not guarantee a particular ranking or appearance for broad searches such as “Paperplane.”
+
 ## Tools
 
 - **Image to PDF:** Combine multiple images in order, choose A4 or US Letter paper, orientation, and margins, or fit each page to its image.

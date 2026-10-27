@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kushalmenariya.github.io/paperplane-studio/sitemap.xml
