@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Paperplane Studio is a free online image to PDF converter, image resizer, OCR text scanner, and PDF page editor. Use it in your browser; your files stay on your device."
+      content="Paperplane is a free online PDF and image toolkit. Convert JPG and PNG images to PDF, resize images, scan text, and work with PDF files directly in your browser."
     />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://kushalmenariya.github.io/paperplane-studio/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Paperplane Studio — Free Image & PDF Tools" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Paperplane Studio" />
+    <meta property="og:title" content="Paperplane PDF Converter - Free Image to PDF Converter" />
     <meta
       property="og:description"
       content="Convert images to PDF, resize pictures, scan text with OCR, and edit PDF pages in your browser."
     />
     <meta property="og:url" content="https://kushalmenariya.github.io/paperplane-studio/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Paperplane Studio — Free Image & PDF Tools" />
+    <meta name="twitter:title" content="Paperplane PDF Converter - Free Image to PDF Converter" />
     <meta
       name="twitter:description"
       content="Convert images to PDF, resize pictures, scan text with OCR, and edit PDF pages in your browser."
@@ -24,31 +27,43 @@
     <meta name="theme-color" content="#7757db" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
-    <title>Paperplane Studio — Image to PDF, Resizer, OCR & PDF Editor</title>
+    <title>Paperplane PDF Converter - Free Image to PDF Converter</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Paperplane Studio",
-        "url": "https://kushalmenariya.github.io/paperplane-studio/",
-        "description": "A free browser-based image to PDF converter, image resizer, OCR text scanner, and PDF page editor.",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Any",
-        "browserRequirements": "Requires a modern web browser",
-        "isAccessibleForFree": true,
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "featureList": [
-          "Convert images to PDF",
-          "Resize images",
-          "Scan images for editable text with OCR",
-          "Reorder, rotate, and remove PDF pages"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://kushalmenariya.github.io/paperplane-studio/#website",
+            "name": "Paperplane Studio",
+            "url": "https://kushalmenariya.github.io/paperplane-studio/",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://kushalmenariya.github.io/paperplane-studio/#application",
+            "name": "Paperplane PDF Converter",
+            "url": "https://kushalmenariya.github.io/paperplane-studio/",
+            "description": "A browser-based image-to-PDF converter with image resizing, text scanning, and PDF page editing tools.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true,
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://kushalmenariya.github.io/paperplane-studio/#website"
+            },
+            "featureList": [
+              "Convert JPG and PNG images to PDF",
+              "Resize images",
+              "Scan images for editable text",
+              "Reorder, rotate, and remove PDF pages"
+            ]
+          }
         ]
       }
     </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -105,8 +120,8 @@
           <div class="page-heading">
             <div>
               <div class="eyebrow"><span class="eyebrow-icon">✦</span> IMAGE TOOLKIT</div>
-              <h1 id="convert-title">Images to <span>PDF</span></h1>
-              <p class="page-subtitle">Turn your favorite images into a beautiful, shareable PDF.</p>
+              <h1 id="convert-title">Free Image to <span>PDF Converter</span></h1>
+              <p class="page-subtitle">Convert JPG and PNG images into a shareable PDF, right in your browser.</p>
             </div>
             <div class="heading-art" aria-hidden="true"><div class="art-sheet art-sheet-back"></div><div class="art-sheet art-sheet-front"><span>PDF</span></div><div class="art-sparkle">✳</div></div>
           </div>
@@ -235,16 +250,34 @@
             </div>
           </section>
         </section>
+        <section class="seo-content" aria-labelledby="about-title">
+          <h2 id="about-title">Simple image and PDF tools in one place</h2>
+          <p>Paperplane is a browser-based toolkit for common image and PDF tasks. Choose a tool above to work with your files on your device.</p>
+          <div class="seo-content-grid">
+            <section>
+              <h3>Convert JPG and PNG images to PDF</h3>
+              <p>Combine image files into a PDF, choose A4 or US Letter paper, set the page orientation and margins, or fit pages to the images. Add JPG and PNG files using the image-to-PDF converter.</p>
+            </section>
+            <section>
+              <h3>Resize images and scan text</h3>
+              <p>Resize an image to selected pixel dimensions and export it as JPG, PNG, or WEBP. The text scanner uses OCR to recognize text in an image so you can review, edit, copy, or download the result.</p>
+            </section>
+            <section>
+              <h3>Make basic PDF page edits</h3>
+              <p>Use the PDF tools to reorder pages, rotate them, or remove pages, then download the edited document. Image resizing and PDF page editing happen in your browser; text scanning and some PDF features load their processing libraries from the internet.</p>
+            </section>
+          </div>
+        </section>
         <footer class="main-footer"><span>Made for the little things you need done.</span><span>✳ &nbsp;Paperplane Studio</span></footer>
       </main>
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-    <script src="app.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script defer src="app.js"></script>
     <script>
       if ("serviceWorker" in navigator && ["http:", "https:"].includes(location.protocol)) {
         navigator.serviceWorker.register("./sw.js").catch((error) => {
