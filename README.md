@@ -23,7 +23,7 @@ This is a static website; it can be hosted on GitHub Pages, Netlify, or any stat
 
 On a supported Chrome desktop version, use the **Install app** button when it appears, or choose **Install Paperplane Studio** from Chrome's menu. On mobile Chrome, use the menu's **Add to Home screen** option. Installation and service workers require HTTPS (except when testing on `localhost`).
 
-The service worker caches the app shell and checks for fresh HTML during page navigation, falling back to the cached homepage when offline. It does not cache the external PDF/OCR libraries or OCR language data, so those tools still need internet access.
+The service worker checks for fresh same-origin files first, updates the app-shell cache, and falls back to cached files when offline. It does not cache the external PDF/OCR libraries or OCR language data, so those tools still need internet access.
 
 ## Search engines
 
